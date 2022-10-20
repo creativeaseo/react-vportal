@@ -1,38 +1,1523 @@
+@charset "utf-8";
+
+/* LG Smart Font 적용 */
+@font-face {
+  font-family: 'LGSmartRegular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('./font/LGSmHaR.woff'), url('./font/LGSmHaR.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'LGSmartBold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('./font/font/LGSmHaB.woff'), url('./font/LGSmHaB.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'LGSmartLight';
+  font-style: normal;
+  font-weight: normal;
+  src: local('./font/LGSmHaL.woff'), url('./font/LGSmHaL.woff') format('woff');
+}
+
+
+@font-face {
+  font-family: 'LGSmartSemiBold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('./font/LGSmHaSB.woff'), url('./font/LGSmHaSB.woff') format('woff');
+}
+
+/* 초기화 */
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 0.75em;
+  font-family: 'LGSmartRegular', sans-serif;
+  background: #fff !important;
+}
+
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+img {
+  margin: 0;
+  padding: 0;
+  border: 0
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 1em;
+  font-family: 'LGSmartRegular', dotum, sans-serif
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block
+}
+
+ul,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none
+}
+
+legend {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  line-height: 0;
+  text-indent: -9999em;
+  overflow: hidden
+}
+
+label,
+input,
+button,
+select,
+img {
+  vertical-align: middle;
+  font-size: 1.3em
+}
+
+label.police_agree {
+  font-size: 1em
+}
+
+input,
+button {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1em
+}
+
+input[type="submit"] {
+  cursor: pointer
+}
+
+button {
+  cursor: pointer
+}
+
+textarea,
+select {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1em
+}
+
+select {
+  margin: 0
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  display: none
+}
+
+pre {
+  overflow-x: scroll;
+  font-size: 1.1em
+}
+
+a {
+  color: #000;
+  text-decoration: none
+}
+
+*,
+:after,
+:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+input[type=text],
+input[type=password],
+textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+textarea:focus,
+select:focus {
+  -webkit-box-shadow: 0 0 3px #558ab7;
+  -moz-box-shadow: 0 0 3px #558ab7;
+  box-shadow: 0 0 3px #558ab7;
+  border: 0px !important;
+  /* border: 1px solid #558ab7 !important; */
+  box-sizing: border-box;
+}
+
+.placeholdersjs {
+  color: #aaa !important
+}
+
+div:focus,
+p:focus,
+ul:focus,
+input:focus,
+textarea:focus,
+select:focus,
+option:focus,
+button:focus,
+a:focus {
+  outline: none !important;
+}
+
+/* 레이아웃 */
+html {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
 .App {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  min-width: 1560px;
+
+}
+
+.container {
+  background: #F4F4F4;
+  padding-bottom: 70px;
+}
+
+
+
+/* Header */
+header {
+  position: relative;
+  display: flex;
+  height: 70px;
+  align-items: center;
+  padding: 0px 70px;
+  border-bottom: 1px solid #E5E5E5;
+  box-shadow: 10px 5px 60px #dedede;
+}
+
+.logo a {
+  font-size: 30px;
+  font-family: "LGSmartBold";
+  color: #555555;
+  letter-spacing: -1px;
+}
+
+.header_gnbMenu {
+  display: flex;
+  margin-left: 114px;
+  height: 100%;
+}
+
+.header_gnbMenu li {
+  margin-right: 110px;
+  height: 100%;
+}
+
+.header_gnbMenu li a {
+  font-size: 18px;
+  color: #000;
+  font-family: "LGSmartSemiBold";
+  letter-spacing: 0px;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  letter-spacing: -1px;
+}
+
+.header_gnbMenu li a.active {
+  border-bottom: 3px solid #AA033E;
+}
+
+.header_gnbMenu li:last-child {
+  margin-right: 0px;
+}
+
+.user_name {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  display: flex;
+  width: 127px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 44px;
+  background: #AA033E;
+  color: #fff;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+/* 접수 페이지 리스트 */
+.request_form_ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.request_form_ul li {
+  width: 29.333333333%;
+  margin-bottom: 25px;
+}
+
+.result_form_ul {
+  margin-top: 30px;
+}
+
+.result_form_ul li {
+  margin-bottom: 10px;
+}
+
+
+/* 사용자 점검 접수 */
+.page_list_contents {
+  margin-top: 70px;
+}
+
+.request_file_upload {
+  margin-top: 0px;
+}
+
+.page_wrap {
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: 70px 0px 0px 0px;
+}
+
+.pageTitle {
+  font-size: 27px;
+  color: #333333;
+  font-weight: "LGSmartBold";
+  letter-spacing: -1px;
+  padding-left: 20px;
+}
+
+.listTitle {
+  font-size: 24px;
+  letter-spacing: -1px;
+  font-family: "LGSmartBold";
+  color: #333;
+}
+
+.project_request_page {
+  background: #fff;
+  width: 100%;
+  margin-top: 25px;
+  padding: 50px 50px 25px 50px;
+  border-radius: 10px;
+}
+
+.result_request_page {
+  background: #fff;
+  width: 100%;
+  margin-top: 25px;
+  padding: 50px 50px 50px 50px;
+  border-radius: 10px;
+}
+
+.list_table_wrap {
+  background: #fff;
+  width: 100%;
+  margin-top: 25px;
+  padding: 50px 50px 50px 50px;
+  border-radius: 10px;
+}
+
+.list_table_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.essential_check {
+  color: #AA033E;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.essential_text {
+  position: absolute;
+  color: #AA033E;
+  font-size: 13px;
+  margin-top: 10px;
+  font-family: "LGSmartSemiBold";
+  letter-spacing: -0.5px;
+  bottom: -20px;
+  left: 0px;
+}
+
+.request_form_dl {
+  font-size: 19px;
+  font-family: "LGSmartBold";
+  color: #333;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-right: 0px;
+  min-height: 45px;
+}
+
+.request_form_input_area {
+  position: relative;
+  padding-right: 45px;
+}
+
+.request_form_dl dt {
+  width: 170px;
+  letter-spacing: -1px;
+  line-height: 25px;
+}
+
+.request_form_dl dt.system_network {
+  width: 220px;
+}
+
+.request_form_dl dt.service_access {
+  width: 250px;
+}
+
+.request_form_dl dt.admin_manage {
+  width: 130px;
+}
+
+.request_form_dl dt.manage_infra {
+  width: 275px;
+}
+
+.request_form_dl dt.check_account {
+  width: 120px;
+}
+
+.request_form_dl dt.policy_usage {
+  width: 320px;
+}
+
+.request_form_dl dt.result_report {
+  width: 340px;
+}
+
+.request_form_expansion_dl dt {
+  width: 140px;
+}
+
+.request_form_dl dd {
+  position: relative;
+  width: 100%;
+}
+
+.search_btn_area {
+  margin: 20px 0px;
+}
+
+.list_table_header_btn {
+  display: flex;
+  align-items: center;
+}
+
+/* 점검 접수 신청하기 */
+
+.request_font_dataTxt {
+  font-size: 16px;
+  color: #333;
+  font-family: "LGSmartRegular";
+  padding-left: 10px;
+  letter-spacing: -0.5px;
+  background: #F6F6F6;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  max-width: 500px;
+  min-width: 200px;
+  min-height: 48px;
+  white-space: pre-line;
+  word-break: keep-all;
+  line-height: 23px;
+}
+
+.admin_sso_apply_dd {
+  display: flex;
+  align-items: center;
+}
+
+.admin_select_text {
+  display: flex;
+}
+
+.admin_select_text span {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F6F6F6;
+  padding: 15px;
+  min-width: 150px;
+  font-size: 15px;
+  color: #333;
+  font-family: "LGSmartRegular";
+  letter-spacing: -0.5px;
+  border-radius: 8px;
+  margin-right: 5px;
+}
+
+.result_step_text span {
+  width: 100%;
+}
+
+.request_form_work_area {
+  display: flex;
+  width: 100%;
+}
+
+.request_form_work_area>div {
+  margin-left: 30px;
+}
+
+.request_form_work_area>div:first-child {
+  margin-left: 0px;
+}
+
+.request_form_ul li.request_form_expansion_area {
+  width: 64.5%;
+}
+
+.request_form_ul li.request_form_expansion_area02 {
+  width: 100%;
+}
+
+.request_form_ul li.flex_align_center {
+  display: flex;
+  align-items: center;
+}
+
+.request_form_work_type {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.check_info_form_type {
+  display: flex;
+  flex: none;
+  width: 300px;
+  align-items: center;
+}
+
+.sso_apply_area {
+  position: relative;
+  top: -2px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.sso_apply_area label {
+  margin-left: 10px;
+  font-family: "LGSmartSemiBold";
+  font-size: 16px;
+  letter-spacing: -1px;
+  color: #AA033E;
+  cursor: pointer;
+}
+
+.sso_checkboxclass {
+  display: flex;
+  align-items: center;
+}
+
+.work_type_title {
+  min-width: 60px;
+  font-size: 16px;
+  font-family: "LGSmartRegular";
+  color: #AA033E;
+}
+
+.service_access_subArea {
+  min-width: 50px;
+  font-size: 16px;
+  font-family: "LGSmartRegular";
+  color: #AA033E;
+}
+
+.service_access_subArea_midume {
+  min-width: 55px;
+  font-size: 16px;
+  font-family: "LGSmartRegular";
+  color: #AA033E;
+}
+
+.service_access_subArea_large {
+  min-width: 55px;
+  font-size: 16px;
+  font-family: "LGSmartRegular";
+  color: #AA033E;
+}
+
+.service_access_subArea_small {
+  min-width: 45px;
+  font-size: 16px;
+  font-family: "LGSmartRegular";
+  color: #AA033E;
+}
+
+.check_admin {
+  min-width: 65px;
+  font-size: 16px;
+  margin-right: 10px;
+  font-family: "LGSmartRegular";
+  color: #AA033E;
+}
+
+.check_check_password {
+  min-width: 75px;
+  margin-right: 10px;
+  font-size: 16px;
+  font-family: "LGSmartRegular";
+  color: #AA033E;
+}
+
+.check_password {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.request_form_url_option_management {
+  display: block;
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+.request_form_url_option_management:last-child {
+  margin-bottom: 0px;
+}
+
+.request_form_ul li.serviceURL_item_li {
+  width: 100%;
+  margin-bottom: 5px;
+  display:flex;
+}
+
+.serviceURL_item {
+  display:flex;
+  align-items: center;
+  border: 0px;
+  height: 48px;
+  font-size: 16px;
+  padding: 0px 20px;
+  border-radius: 8px;
+  width: 81%;
+  max-width: 370px;
+  background: #F6F6F6;
+  margin-right:5px;
+  font-family: 'LGSmartRegular';
+}
+.request_form_ul li.serviceURL_item {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.inspection_request_area {
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.inspection_request_area>p {
+  display: flex;
+}
+
+.resut_subTxt {
+  font-size: 17px;
+  margin-left: 20px;
+  color: #AA033E;
+  font-weight: 100;
+}
+
+/* 점검 접수 & 결과 등록 */
+.request_header_tapMenu {
+  position: relative;
+  max-width: 1760px;
+  margin: 0px auto 50px auto;
+  display: flex;
+}
+
+.request_header_tapMenu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 270px;
+  height: 65px;
+  border: 1px solid #ddd;
+  background: #ffffff;
+  font-size: 18px;
+  font-family: "LGSmartSemiBold";
+  letter-spacing: -1px;
+}
+
+.request_header_tapMenu a:nth-child(1) {
+  border-radius: 8px 0px 0px 8px;
+  border-right: 0px;
+}
+
+.request_header_tapMenu a:nth-child(2) {
+  border-radius: 0px 8px 8px 0px;
+}
+
+.request_header_tapMenu a.request_header_tapMenu_on {
+  background: #AA033E;
+  color: #fff;
+  border-right: 0px;
+
+}
+
+.request_admin_registration_ul {
+  justify-content: flex-start;
+}
+
+.request_admin_registration_ul li.request_admin_registration_li {
+  margin-left: 100px;
+  max-width: 800px;
+}
+
+.admin_select_text span.admin_sso_apply_span {
+  margin-left: 8px;
+  border: 1px solid #AA033E;
+  border-radius: 8px;
+  color: #AA033E;
+  padding: 10px 15px;
+  background: #fff;
+}
+
+
+/* 푸터 */
+footer {
+  text-align: center;
+  padding: 50px 0px;
+  background: #F4F4F4;
+  font-size: 15px;
+  color: #848484;
+  background: #333;
+}
+
+/* 공통 속성 */
+.red_color {
+  color: #AA033E;
+}
+
+.content_center {
+  width: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* 버튼 */
+.checker_null {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 100px;
+  height: 38px;
+  background: #eee;
+  margin: 0 auto;
+  border-radius: 34px;
+  color: #333;
+  font-size: 13px;
 }
 
-.App-link {
-  color: #61dafb;
+.inspection_code_addBtn {
+  border: 0px;
+  width: 45px;
+  height: 45px;
+  color: #fff;
+  background: #AA033E;
+  border-radius: 50px;
+  font-size: 18px;
+  font-family: "LGSmartRegular";
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.url_addBtn {
+  width: 45px;
+  height: 45px;
+  border: 0px;
+  border-radius: 8px;
+  color: #fff;
+  background: none;
+  font-size: 15px;
+  font-family: "LGSmartSemiBold";
+  margin-left: 5px;
+  background: #AA033E;
 }
+
+.url_delBtn {
+    background: #333;
+}
+
+
+
+.url_deleteBtn {
+  width: 45px;
+  height: 45px;
+  border: 0px;
+  border-radius: 8px;
+  color: #fff;
+  background: none;
+  margin-left: 2px;
+  font-size: 15px;
+  font-family: "LGSmartSemiBold";
+  background: #333;
+}
+
+.search_btn {
+  display: flex;
+  width: 158px;
+  height: 50px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 0px;
+  border-radius: 43px;
+  background: #333333;
+  color: #fff;
+  font-size: 17px;
+  font-family: "LGSmartSemiBold";
+}
+
+.request_check_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 38px;
+  border: 1px solid #AAAAAA;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 34px;
+  color: #333333;
+  font-size: 13px;
+}
+
+.request_checking_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 38px;
+  border: 1px solid #2666C2;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 34px;
+  color: #2666C2;
+  font-size: 13px;
+}
+
+.request_check_complete_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 38px;
+  border: 1px solid #AA033E;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 34px;
+  color: #AA033E;
+  font-size: 13px;
+}
+
+.request_step01 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #333333;
+  width: 100px;
+  height: 38px;
+  margin: 0 auto;
+  border-radius: 34px;
+  color: #fff;
+  font-family: "LGSmartLight";
+  font-size: 13px;
+}
+
+.request_check_step01 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #2666C2;
+  width: 100px;
+  height: 38px;
+  margin: 0 auto;
+  border-radius: 34px;
+  color: #fff;
+  font-family: "LGSmartLight";
+  font-size: 13px;
+}
+
+.request_complete_step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #AA033E;
+  width: 100px;
+  height: 38px;
+  margin: 0 auto;
+  border-radius: 34px;
+  color: #fff;
+  font-family: "LGSmartLight";
+  font-size: 13px;
+}
+
+.guide_btn {
+  display: flex;
+  width: 138px;
+  height: 43px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #333;
+  border-radius: 43px;
+  font-size: 16px;
+  letter-spacing: -1.5px;
+  font-family: "LGSmartSemiBold";
+}
+
+.request_add_btn {
+  display: flex;
+  width: 138px;
+  height: 43px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #AA033E;
+  border-radius: 43px;
+  font-size: 16px;
+  letter-spacing: -1px;
+  font-family: "LGSmartSemiBold";
+  color: #AA033E;
+  margin-left: 12px;
+}
+
+.employee_search_btn {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  font-size: 0px;
+  border: 0px;
+  width: 48px;
+  height: 48px;
+  background: #333 url('./img/search_icon.png') center center no-repeat;
+  border-radius: 0px 8px 8px 0px;
+}
+
+.writeing_saveBtn {
+  width: 148px;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #555555;
+  background: #fff;
+  color: #555;
+  font-size: 17px;
+  font-family: "LGSmartSemiBold";
+  border-radius: 43px;
+  letter-spacing: -1px;
+}
+
+.check_requestBtn {
+  width: 148px;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #AA033E;
+  background: #fff;
+  color: #AA033E;
+  font-size: 17px;
+  font-family: "LGSmartSemiBold";
+  border-radius: 43px;
+  margin-left: 12px;
+  letter-spacing: -1px;
+}
+
+.check_DeleteBtn {
+  width: 148px;
+  height: 53px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #2666C2;
+  background: #fff;
+  color: #2666C2;
+  font-size: 17px;
+  font-family: "LGSmartSemiBold";
+  border-radius: 43px;
+  margin-left: 12px;
+  letter-spacing: -1px;
+}
+
+/* 테이블 */
+
+.list_table {
+  width: 100%;
+  margin-top: 20px;
+  border-top: 3px solid #AA033E;
+  border-spacing: 0px;
+}
+
+.list_table tr th {
+  padding: 30px 20px;
+  font-size: 17px;
+  font-family: "LGSmartBold";
+  letter-spacing: -1px;
+  background: #F4F4F4;
+  border-left: 1px solid #E3E3E3;
+  text-align: center;
+}
+
+.list_table tr th:first-child {
+  border-left: 0px;
+}
+
+.list_table tr th.result_leftover_case {
+  width: 150px;
+}
+
+.list_table tr td {
+  padding: 15px 10px;
+  font-size: 15px;
+  font-family: "LGSmartRegular";
+  letter-spacing: -0.5px;
+  text-align: center;
+  color: #767676;
+  border-bottom: 1px solid #E3E3E3;
+  border-left: 1px solid #E3E3E3;
+  height: 60px;
+  line-height: 20px;
+}
+
+.list_table tr td a:hover {
+  color: #AA033E;
+  text-decoration: underline;
+}
+
+.list_table tr td:first-child {
+  border-left: 0px;
+}
+
+.result_table {
+  margin-top: 0px;
+}
+
+.result_table tr th.result_data_th {
+  width: 450px;
+}
+
+.result_upload_table th:nth-child(1) {
+  width: 110px;
+}
+
+.result_upload_table th:nth-child(2) {
+  width: 130px;
+}
+
+.result_upload_table th:nth-child(3) {
+  width: 150px;
+}
+
+.result_upload_table th:nth-child(4) {
+  width: 130px;
+}
+
+.result_upload_table th:nth-child(7) {
+  width: 120px;
+}
+
+.result_upload_table th:nth-child(8) {
+  width: 120px;
+}
+
+.result_upload_table th:nth-child(11) {
+  width: 120px;
+}
+
+
+
+
+/* input */
+
+input::placeholder,
+textarea::placeholder {
+  color: #A8A8A8;
+  font-size: 15px;
+  font-family: "LGSmartRegular";
+}
+
+.custom_checkbox_area {
+  display: flex;
+  align-items: center;
+}
+
+.form_input {
+  border: 0px;
+  height: 48px;
+  font-size: 16px;
+  padding: 0px 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 370px;
+  background: #F6F6F6;
+}
+
+.model_input {
+  width: 100%;
+  max-width: 80%;
+  margin-right: 5px;
+}
+
+.check_admin_input {
+  max-width: 200px;
+}
+
+.form_url_input {
+    width: 81%;
+    max-width: 370px;
+    margin-right: 5px;
+}
+
+.request_form_textarea {
+  border: 0px;
+  height: 150px;
+  font-size: 15px;
+  padding: 20px 20px;
+  border-radius: 8px;
+  width: 100%;
+  background: #F6F6F6;
+  white-space: pre-line
+}
+
+.policy_form_textarea {
+  border: 0px;
+  height: 150px;
+  font-size: 15px;
+  padding: 20px 20px;
+  border-radius: 8px;
+  width: 50%;
+  background: #F6F6F6;
+}
+
+.model_form_textarea {
+  border: 0px;
+  height: 150px;
+  font-size: 15px;
+  padding: 20px 20px;
+  border-radius: 8px;
+  width: 100%;
+  background: #F6F6F6;
+}
+
+.form_search_input {
+  border-radius: 8px 0px 0px 8px;
+}
+
+.form_select {
+  border: 0px;
+  height: 48px;
+  font-size: 15px;
+  padding: 0px 20px;
+  border-radius: 8px;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  color: #333;
+  font-family: "LGSmartRegular";
+  background: #F6F6F6 url('./img/input_select.png') 95% center no-repeat;
+}
+
+.custom_checkbox_item {
+  position: relative;
+  flex: 1;
+  height: 48px;
+  margin-right: 8px;
+  max-width: 160px;
+}
+
+.admin_checkbox_item {
+  position: relative;
+  flex: 1;
+  height: 48px;
+  margin-right: 8px;
+  max-width: 100%;
+}
+
+.custom_checkbox_item:last-child {
+  margin-right: 0px;
+}
+
+.custom_checkbox {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  display: none;
+}
+
+.custom_checkbox_label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #E3E3E3;
+  background: #fff;
+  padding: 0px 20px;
+  font-size: 14px;
+  color: #A8A8A8;
+  font-family: "LGSmartRegular";
+  cursor: pointer;
+  background: url('./img/check_input_icon.png') 88% center no-repeat;
+  border-radius: 5px;
+}
+
+.custom_checkbox:checked~.custom_checkbox_label {
+  background: #AA033E url('./img/check_input_icon_on.png') 88% center no-repeat;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.custom_radio_label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #E3E3E3;
+  background: #fff;
+  padding: 0px 15px;
+  font-size: 14px;
+  color: #A8A8A8;
+  font-family: "LGSmartRegular";
+  cursor: pointer;
+  background: url('./img/radio_input_icon.png') 90% center no-repeat;
+  border-radius: 5px;
+}
+
+.custom_radio {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  display: none;
+}
+
+.custom_radio:checked~.custom_radio_label {
+  background: #AA033E url('./img/radio_input_icon_on.png') 90% center no-repeat;
+  color: #fff;
+  transition: all 0.5s;
+}
+
+.sso_checkbox {
+  display: none;
+}
+
+.sso_checkbox_span {
+  position: relative;
+  top: 4px;
+  border: 1px solid #AA033E;
+  border-radius: 3px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+  margin-right: 5px;
+}
+
+.sso_checkbox:checked~label .sso_checkbox_span:after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.sso_checkbox_span:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 12px;
+  height: 12px;
+  background-color: #AA033E;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.form_file_input {
+  height: 48px;
+  border-radius: 8px;
+  background: #F6F6F6;
+  line-height: 48px;
+  width: 50%;
+  font-size: 15px;
+  font-family: "LGSmartRegular";
+}
+
+.form_file_input::file-selector-button {
+  width: 120px;
+  height: 48px;
+  background: #333;
+  border: 0px;
+  color: #fff;
+  margin-right: 20px;
+  font-size: 16px;
+  font-family: "LGSmartSemiBold";
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+/* 추가 모둘 설치 */
+.request_form_dateSelect {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.result_form_dateSelect {
+  display: block;
+  align-items: center;
+}
+
+.request_form_dateSelect span {
+  font-size: 15px;
+}
+
+.request_form_dateSelect span input {
+  border: 0px;
+  height: 48px;
+  font-size: 14px;
+  padding: 0px 10px;
+  border-radius: 8px;
+  background: #F6F6F6;
+  width: 100%;
+  background: #F6F6F6 url('./img/address_icon.png') 95% center no-repeat;
+  background-size: 20px auto;
+  letter-spacing: -0.5px;
+}
+
+.result_form_dateSelect span input {
+  max-width: 200px;
+}
+
+.request_form_admin_data span {
+  display: inline-block;
+  width: 100%;
+  font-size: 15px;
+}
+
+.request_form_date_line {
+  margin: 0px 10px;
+  max-width: 50px;
+  text-align: center;
+}
+
+/* 모달 팝업 */
+.member_add_modal h2 {
+  font-size: 25px;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+
+.member_add_modal {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+.modal_table_wrap {
+  position: relative;
+  overflow-y: scroll;
+  height: 350px;
+  padding-right: 10px;
+}
+
+.model_inspection_scroll_wrap {
+  position: relative;
+  overflow-y: hidden;
+  height: 380px;
+  padding-right: 10px;
+  overflow-y: scroll;
+}
+
+.model_inspection_scroll_wrap>div {
+  position: relative;
+  border-top: 1px solid #AA033E;
+  margin-top: 10px;
+  padding-top: 20px;
+}
+
+.model_inspection_dl {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+}
+
+.model_inspection_dl dt {
+  font-size: 18px;
+  margin-right: 15px;
+  font-family: "LGSmartSemiBold";
+}
+
+.model_inspection_dl dd {
+  margin-top: 0px;
+  padding-left: 1px;
+  width: 90%;
+}
+
+.model_inspection_email_address {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.modal_table_wrap::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal_table_wrap::-webkit-scrollbar-thumb {
+  height: 30%;
+  background: #6D6E70;
+  border-radius: 10px;
+}
+
+.modal_table_wrap::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, .1);
+}
+
+.model_inspection_scroll_wrap::-webkit-scrollbar {
+  width: 6px;
+}
+
+.model_inspection_scroll_wrap::-webkit-scrollbar-thumb {
+  height: 30%;
+  background: #6D6E70;
+  border-radius: 10px;
+}
+
+.model_inspection_scroll_wrap::-webkit-scrollbar-track {
+  background: rgba(33, 122, 244, .1);
+}
+
+.modal_closeBtn {
+  position: absolute;
+  right: 30px;
+  top: 36px;
+  border: 0px;
+  background: #fff;
+  color: #333;
+  font-size: 30px;
+  border-radius: 50px;
+  width: 30px;
+  height: 30px;
+  font-size: 0px;
+  background: url('./img/modal_close_icon.png') center center no-repeat;
+}
+
+.modal_table {
+  margin-bottom: 50px;
+  margin-top: 0px;
+}
+
+.modal_table tr th {
+  padding: 20px;
+  font-size: 15px;
+}
+
+.modal_table tr td {
+  padding: 0px 10px;
+  font-size: 14px;
+}
+
+.inspection_start_subTxt {
+  font-size: 16px;
+  margin-top: 30px;
+  letter-spacing: -0.5px;
+}
+
+.addFixed {
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  background:#fff;
+  padding:20px 0px 20px 0px;
+  border-top:1px solid #ddd;
+}
+
+
+
+
+
+
+.error_message {
+  font-size: 12px;
+  padding: 3px;
+  color: red;
+  display: block;
+}
+
+/* input:invalid[focused="true"]~span {
+  display: block;
+} */
+
+
+
+
+
+

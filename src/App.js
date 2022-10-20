@@ -1,25 +1,51 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import ListInspectionComponent from './components/ListInspectionComponent';
+import HeaderComponent from './components/HeaderComponent';
+import FooterComponent from './components/FooterComponent';
+import InspectionRequest from './components/InspectionRequest';
+import InspectionRequestView from './components/InspectionRequestView';
+import Test from './Test';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HeaderComponent />
+      <Routes>
+        {/* 점검 요청 리스트 페이지 */}
+        <Route
+          path="/index"
+          element={<ListInspectionComponent />}
+        ></Route>
+
+        {/* 점검 요청하기 페이지 */}
+        <Route
+          path="/request"
+          element={<InspectionRequest />}
+        ></Route>
+
+        {/* 점검 요청 상세 페이지 */}
+        <Route
+          path="/request/view/:id"
+          element={<InspectionRequestView />}
+        ></Route>
+
+
+
+
+
+        {/* 테스트 */}
+        <Route
+          path="/test"
+          element={<Test />}
+        >          
+        </Route>
+
+      </Routes>
+      <FooterComponent />
     </div>
   );
-}
+};
 
 export default App;

@@ -10,7 +10,6 @@ import { ko } from 'date-fns/esm/locale';
 import RequestCompleteModal from './modalComponent/RequestCompleteModal';
 import InspectionService from '../service/InspectionService';
 import ServiceURLItemList from './inspectionRequestComponent/ServiceURLItemList';
-import FormInput from './form/FormInput';
 
 const InspectionRequest = () => {
   const navigate = useNavigate();
@@ -58,63 +57,17 @@ const InspectionRequest = () => {
   };
 
   // ****** 점검 접수 useState / input 입력 ******
-
-  // 일반 입력 input
-  const [inputOption, setInputOption] = useState({
-    systemName: '',
-    projectName: '',
-    cooperation: '',
-  });
-  const systemNameInputs = [
-    {
-      id: 1,
-      name: 'systemName',
-      type: 'text',
-      placeholer: '시스템명을 입력해주세요.',
-      label: '시스템명',
-      subname: 'systemName',
-      errorMessage: '필수입력사항입니다.',
-      required: true,
-    },
-  ];
-  const projectNameInputs = [
-    {
-      id: 1,
-      name: 'projectName',
-      type: 'text',
-      placeholer: '프로젝트명을 입력해주세요.',
-      label: '프로젝트명',
-      subname: 'projectName',
-      errorMessage: '필수입력사항입니다.',
-      required: true,
-    },
-  ];
-  const cooperationInputs = [
-    {
-      id: 1,
-      name: 'cooperation',
-      type: 'text',
-      placeholer: '협업주관부서를 입력해주세요.',
-      label: '협업주관부서',
-      subname: 'cooperation',
-      errorMessage: '필수입력사항입니다.',
-      required: true,
-    },
-  ];
-
-  const onChangeHandle = (e) => {
-    setInputOption({
-      ...inputOption,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   // 시스템명
-  const systemName = inputOption.systemName;
+  const [systemName, setSytetmName] = useState(
+    ''
+  );
+  const systemNameRef = React.useRef(null);
 
   // 프로젝트명
-  const projectName = inputOption.projectName;
-
+  const [projectName, setProjectName] = useState(
+    ''
+  );
+  const projectNameRef = React.useRef(null);
   // 점검 요청일
   const [requestDate, setRequestDate] = useState(
     ''
@@ -156,7 +109,9 @@ const InspectionRequest = () => {
     setWorkAreaSmall(e.target.value);
   };
   // 협업주관부서
-  const cooperation = inputOption.cooperation;
+  const [cooperation, setCooperation] = useState(
+    ''
+  );
   // 점검요청자
   const [
     inspectionRequester,
@@ -1147,16 +1102,28 @@ const InspectionRequest = () => {
 
   const saveingInspectionRequest = (e) => {
     e.preventDefault();
+    // 시스템명
+    // localStorage.setItem('savingSyaName', JSON.stringify(systemName));
+    // const savingSetItemString = localStorage.getItem('savingSyaName');
+    // const savingSetItemArraty = JSON.parse(savingSetItemString);
+    // setSytetmName(savingSetItemArraty);
+
+    // console.log(savingitem);
+    // setWatch(savingitem);
+
+    // 시스템명
+
+    // let [watchItem, setWatch] = useState([]);
+    // let watch = localStorage.getItem('systemName');
+    // // const systemNameSavingValue = ocalStorage.getItem("systemNameSavingValue");
+    // localStorage.getItem('systemName', JSON.stringify(watch));
+    // setWatch(watch);
+    // console.log(watch);
   };
 
   // ****** 점검접수 전체 항목 Springboot로 전달 ******
   const saveInspectionRequest = (e) => {
     e.preventDefault();
-
-    const data = new FormData(e.target);
-    console.log(
-      Object.fromEntries(data.entries())
-    );
 
     if (linkSystemEtc != null) {
       addLinkSystemEtc();
@@ -1169,17 +1136,17 @@ const InspectionRequest = () => {
     }
 
     // 유효성 검사
-    // if (systemName == '') {
-    //   alert('시스템명을 입력해주세요.');
-    //   systemNameRef.current.focus();
-    //   return false;
-    // }
+    if (systemName == '') {
+      alert('시스템명을 입력해주세요.');
+      systemNameRef.current.focus();
+      return false;
+    }
 
-    // if (projectName == '') {
-    //   alert('프로젝트명을 입력해주세요.');
-    //   projectNameRef.current.focus();
-    //   return false;
-    // }
+    if (projectName == '') {
+      alert('프로젝트명을 입력해주세요.');
+      projectNameRef.current.focus();
+      return false;
+    }
 
     const linkSystem = JSON.stringify(
       linkSystemIdxArray
@@ -1353,44 +1320,66 @@ const InspectionRequest = () => {
               점검 접수 신청하기
             </h2>
           </div>
-          <form onSubmit={saveInspectionRequest}>
+          <form>
             {/* S :: 점검 점수 신청하기 */}
             <div className="project_request_page">
               <ul className="request_form_ul">
                 <li>
-                  {systemNameInputs.map(
-                    (input) => (
-                      <FormInput
-                        key={input.id}
-                        {...input}
-                        value={
-                          inputOption[input.name]
+                  <dl className="request_form_dl">
+                    <dt>
+                      시스템명
+                      <span className="essential_check">
+                        *
+                      </span>
+                    </dt>
+                    <dd>
+                      <input
+                        className="form_input"
+                        type="text"
+                        placeholder="시스템명을 입력해주세요."
+                        value={systemName || ''}
+                        onChange={(e) =>
+                          setSytetmName(
+                            e.target.value
+                          )
                         }
-                        onChange={onChangeHandle}
+                        ref={systemNameRef}
                       />
-                    )
-                  )}
+                      {/* <p className="essential_text">
+                        필수 입력 사항입니다.
+                      </p> */}
+                    </dd>
+                  </dl>
                 </li>
                 <li>
-                  {projectNameInputs.map(
-                    (input) => (
-                      <FormInput
-                        key={input.id}
-                        {...input}
-                        value={
-                          inputOption[input.name]
+                  <dl className="request_form_dl">
+                    <dt>
+                      프로젝트명
+                      <span className="essential_check">
+                        *
+                      </span>
+                    </dt>
+                    <dd>
+                      <input
+                        className="form_input"
+                        type="text"
+                        placeholder="연계프로젝트명을 입력해주세요."
+                        value={projectName || ''}
+                        onChange={(e) =>
+                          setProjectName(
+                            e.target.value
+                          )
                         }
-                        onChange={onChangeHandle}
+                        ref={projectNameRef}
                       />
-                    )
-                  )}
+                    </dd>
+                  </dl>
                 </li>
                 <li>
                   <dl className="request_form_dl">
                     <dt>점검 요청일</dt>
                     <dd>
                       <input
-                        disabled
                         className="form_input"
                         type="text"
                         value={
@@ -1496,25 +1485,28 @@ const InspectionRequest = () => {
                   </dl>
                 </li>
                 <li>
-                  {cooperationInputs.map(
-                    (input) => (
-                      <FormInput
-                        key={input.id}
-                        {...input}
-                        value={
-                          inputOption[input.name]
+                  <dl className="request_form_dl">
+                    <dt>협업주관부서</dt>
+                    <dd>
+                      <input
+                        className="form_input"
+                        type="text"
+                        placeholder="협업주관부서를 입력해주세요."
+                        value={cooperation || ''}
+                        onChange={(e) =>
+                          setCooperation(
+                            e.target.value
+                          )
                         }
-                        onChange={onChangeHandle}
                       />
-                    )
-                  )}
+                    </dd>
+                  </dl>
                 </li>
                 <li>
                   <dl className="request_form_dl">
                     <dt>점검 요청자</dt>
                     <dd>
                       <input
-                        disabled
                         className="form_input"
                         type="text"
                         placeholder="점검요청자를 입력해주세요."
@@ -2576,7 +2568,12 @@ const InspectionRequest = () => {
                 >
                   중간 저장
                 </button>
-                <button className="check_requestBtn">
+                <button
+                  onClick={(e) =>
+                    saveInspectionRequest(e)
+                  }
+                  className="check_requestBtn"
+                >
                   점검 요청
                 </button>
               </p>

@@ -13,6 +13,13 @@ const App = () => {
     <div className="App">
       <HeaderComponent />
       <Routes>
+        {/* 메인 */}
+        <Route
+          path="/"
+          element={<ListInspectionComponent />}
+        ></Route>
+
+        
         {/* 점검 요청 리스트 페이지 */}
         <Route
           path="/index"
@@ -31,17 +38,11 @@ const App = () => {
           element={<InspectionRequestView />}
         ></Route>
 
-
-
-
-
         {/* 테스트 */}
         <Route
           path="/test"
           element={<Test />}
-        >          
-        </Route>
-
+        ></Route>
       </Routes>
       <FooterComponent />
     </div>

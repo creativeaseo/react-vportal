@@ -4,6 +4,7 @@ import React, {
 } from 'react';
 import InspectionService from '../../service/InspectionService';
 import { Link } from 'react-router-dom';
+import SearchComponent from '../inspectionRequestComponent/SearchComponent';
 
 const InspectionRequestTable = () => {
   const [inspection, setInspection] = useState(
@@ -24,6 +25,7 @@ const InspectionRequestTable = () => {
 
   return (
     <div className="page_list_contents">
+      <SearchComponent />
       <div className="list_table_wrap">
         <div className="list_table_header">
           <h2 className="listTitle">

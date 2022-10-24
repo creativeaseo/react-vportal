@@ -204,6 +204,7 @@ option:focus,
 button:focus,
 a:focus {
   outline: none !important;
+  inset-inline: none !important;
 }
 
 /* 레이아웃 */
@@ -320,8 +321,9 @@ header {
 
 
 /* 사용자 점검 접수 */
+
 .page_list_contents {
-  margin-top: 70px;
+  padding-top:70px;
 }
 
 .request_file_upload {
@@ -376,7 +378,7 @@ header {
 .list_table_header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: center;  
 }
 
 .essential_check {
@@ -386,18 +388,18 @@ header {
 }
 
 .essential_text {
-  position: absolute;
+  position: relative;
   color: #AA033E;
   font-size: 13px;
   margin-top: 10px;
   font-family: "LGSmartSemiBold";
   letter-spacing: -0.5px;
-  bottom: -20px;
+  bottom: 0px;
   left: 0px;
+  display: none;
 }
 
-.request_form_dl {
-  font-size: 19px;
+.request_form_dl {  
   font-family: "LGSmartBold";
   color: #333;
   display: flex;
@@ -415,7 +417,12 @@ header {
 .request_form_dl dt {
   width: 170px;
   letter-spacing: -1px;
-  line-height: 25px;
+  line-height: 25px;  
+  font-size: 19px;
+}
+
+.request_form_dl dt label {  
+  font-size:19px;
 }
 
 .request_form_dl dt.system_network {
@@ -1093,6 +1100,15 @@ footer {
 
 /* input */
 
+input:invalid[focused="true"] {
+  border: 1px solid #AA033E;
+}
+
+input:invalid[focused="true"] ~ p {
+  display: block;
+}
+
+
 input::placeholder,
 textarea::placeholder {
   color: #A8A8A8;
@@ -1500,22 +1516,12 @@ textarea::placeholder {
   border-top:1px solid #ddd;
 }
 
-
-
-
-
-
 .error_message {
   font-size: 12px;
   padding: 3px;
   color: red;
   display: block;
 }
-
-/* input:invalid[focused="true"]~span {
-  display: block;
-} */
-
 
 
 
